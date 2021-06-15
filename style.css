@@ -1,0 +1,12 @@
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+.container {
+    border: 5px outset red;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    padding: 10px;
+}
