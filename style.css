@@ -4,7 +4,7 @@ body {
 }
 
 .container {
-    border: 5px outset red;
+    border: 4px outset blue;
     position: absolute;
     top: 0px;
     left: 0px;
