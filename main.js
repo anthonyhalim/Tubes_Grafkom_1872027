@@ -88,7 +88,7 @@ corona6 = new THREE.GLTFLoader().load('corona2/corona.gltf',function(gltf){
 
 document.addEventListener("keydown", function (ev) {
   if(ev.key=="w"){
-  player.position.y+=1  
+  player.position.y+=2.5  
 
 }
 if(ev.key=="a"){
@@ -120,6 +120,13 @@ renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 const controls = new THREE.OrbitControls(cam,renderer.domElement);
 
 
+var Skor =0;
+
+var timer=0;
+
+var turun =0;
+var gravity =0.005;
+
 function draw(){
   requestAnimationFrame(draw);
   corona.position.z +=0.08;
@@ -128,6 +135,22 @@ function draw(){
   corona4.position.z +=0.06;
   corona5.position.z +=0.06;
   corona6.position.z +=0.06;
+
+  if(player.position.y > 0){
+    turun +=gravity;
+    player.position.y-=turun;
+  }else{
+    turun=0;
+  }
+
+  if (timer > 20) {
+    timer=0;
+    Skor+=1;    
+    document.getElementById("skor").innerHTML =Skor;
+  }
+  timer += 1;
+
+  
 
   controls.update();
   renderer.render(scene,cam);
